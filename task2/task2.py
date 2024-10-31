@@ -4,10 +4,12 @@ def get_cats_info(path):
     lines = []
     cats_info = {}
 
+# open file as "try...except" for reading file
     try:
         with open (Path(path), "r", encoding='utf-8') as fh:
             for el in fh.readlines():
-                             
+        
+# split line and add list elements to dict                     
                 cats_info =  {'id': el.split(',')[0],
                             'name': el.split(',')[1],
                              'age': el[:-1].split(',')[2] if el[-1] == '\n' else el.split(',')[2]}
